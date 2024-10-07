@@ -21,7 +21,7 @@ class Beranda extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 40,
-                    backgroundImage: AssetImage('assets/profile.jpg'), // Gambar profil
+                     backgroundImage: AssetImage('assets/profile.jpg'), // Gambar profil
                   ),
                   SizedBox(height: 10),
                   Text(
@@ -50,7 +50,8 @@ class Beranda extends StatelessWidget {
               title: Text('Logout'),
               onTap: () {
                 // Fungsi logout
-                Navigator.pop(context);
+              //  Navigator.pop(context);
+               Navigator.popUntil(context, (route) => route.isFirst);
               },
             ),
           ],
@@ -64,19 +65,19 @@ class Beranda extends StatelessWidget {
           mainAxisSpacing: 10,
           children: <Widget>[
             _buildCard(
-              icon: Icons.health_and_safety,
-              title: 'Health',
-              color: Colors.redAccent,
+              icon: Icons.cake_rounded,
+              title: 'Cake',
+              color: Colors.pinkAccent,
             ),
             _buildCard(
-              icon: Icons.message,
-              title: 'Messages',
-              color: Colors.orange,
+              icon: Icons.icecream,
+              title: 'Ice Cream',
+              color: Colors.greenAccent,
             ),
             _buildCard(
-              icon: Icons.analytics,
-              title: 'Reports',
-              color: Colors.blue,
+              icon: Icons.local_cafe,
+              title: 'Cafe',
+              color: Colors.brown,
             ),
             _buildCard(
               icon: Icons.settings,

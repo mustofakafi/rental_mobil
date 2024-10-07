@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:latihan_1/login.dart';
-import 'package:latihan_1/register.dart';
 
 void main() {
   runApp(const MyApp());

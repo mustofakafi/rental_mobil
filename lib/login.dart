@@ -27,20 +27,22 @@ class _loginPageState extends State<loginPage> {
     String password = _passwordController.text;
 
     showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text("Data Akun"),
-            content: Text("Username: $username, password: $password"),
-          );
-        });
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Data Akun"),
+          content: Text("Username: $username, password: $password"),
+        );
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Menu Login'),
+        title: const Text('fa cafe'),
+        backgroundColor: Colors.blueAccent,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -49,8 +51,8 @@ class _loginPageState extends State<loginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Login',
+                const Text(
+                  'Selamat Datang',
                   style: TextStyle(
                     fontSize: 32.0,
                     fontWeight: FontWeight.bold,
@@ -66,7 +68,7 @@ class _loginPageState extends State<loginPage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    prefixIcon: Icon(Icons.person),
+                    prefixIcon: const Icon(Icons.person),
                   ),
                 ),
                 const SizedBox(height: 15),
@@ -79,20 +81,45 @@ class _loginPageState extends State<loginPage> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: const Icon(Icons.lock),
                   ),
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
-                    // _tampil();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Beranda()),
-                    );
+                    String username = _usernameController.text;
+                    String password = _passwordController.text;
+
+                    // Kondisi untuk memeriksa apakah username dan password telah diisi
+                    if (username.isEmpty || password.isEmpty) {
+                      // Menampilkan pesan peringatan jika username atau password kosong
+                      // showDialog(
+                      //   context: context,
+                      //   builder: (context) {
+                      //     return AlertDialog(
+                      //       title: const Text("Error"),
+                      //       content: const Text("Username dan password harus diisi!"),
+                      //       actions: [
+                      //         TextButton(
+                      //           onPressed: () {
+                      //             Navigator.pop(context);
+                      //           },
+                      //           child: const Text("OK"),
+                      //         ),
+                      //       ],
+                      //     );
+                      //   },
+                      // );
+                    } else {
+                      // Jika username dan password terisi, lanjutkan ke halaman Beranda
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Beranda()),
+                      );
+                    }
                   },
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -110,7 +137,7 @@ class _loginPageState extends State<loginPage> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()),
+                      MaterialPageRoute(builder: (context) => const MyHomePage()),
                     );
                   },
                   child: const Text(
