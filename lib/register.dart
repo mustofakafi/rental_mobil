@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:latihan_1/beranda.dart';
 import 'package:latihan_1/login.dart';
 
 class Register extends StatelessWidget {
@@ -32,22 +33,22 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _confirmpasswordController =
       TextEditingController();
 
-  void _tampil() {
-    String username = _usernameController.text;
-    String email = _emailController.text;
-    String password = _passwordController.text;
-    String confirm = _confirmpasswordController.text;
+    void _tampil() {
+      String username = _usernameController.text;
+      String email = _emailController.text;
+      String password = _passwordController.text;
+      String confirm = _confirmpasswordController.text;
 
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text("Data Akun"),
-            content: Text(
-                "Username: $username, email: $email, password: $password, confirm: $confirm"),
-          );
-        });
-  }
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text("Data Akun"),
+              content: Text(
+                  "Username: $username, email: $email, password: $password, confirm: $confirm"),
+            );
+          });
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -132,8 +133,11 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 20), // Jarak antara TextField dan tombol
             ElevatedButton(
               onPressed: () {
-                _tampil();
-                // Aksi pendaftaran di sini
+                // Tambahkan logika navigasi di sini
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Beranda()), // Ganti dengan halaman yang sesuai
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
