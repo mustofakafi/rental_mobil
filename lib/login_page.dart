@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_1/beranda.dart';
-import 'package:latihan_1/register.dart';
+import 'package:latihan_1/home_page.dart';
+import 'package:latihan_1/register_page.dart';
 
 class login extends StatelessWidget {
   const login({super.key});
@@ -41,7 +41,7 @@ class _loginPageState extends State<loginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('fa cafe'),
+        title: const Text('Login'),
         backgroundColor: Colors.blueAccent,
       ),
       body: Padding(
@@ -52,9 +52,9 @@ class _loginPageState extends State<loginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Selamat Datang',
+                  'Masukkan Username dan Password \n         Untuk Masuk Ke Akun Anda',
                   style: TextStyle(
-                    fontSize: 32.0,
+                    fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
@@ -66,7 +66,7 @@ class _loginPageState extends State<loginPage> {
                     labelText: 'Username',
                     hintText: 'Masukkan username Anda',
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(14.0),
                     ),
                     prefixIcon: const Icon(Icons.person),
                   ),
@@ -79,7 +79,7 @@ class _loginPageState extends State<loginPage> {
                     labelText: 'Password',
                     hintText: 'Masukkan password Anda',
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(14.0),
                     ),
                     prefixIcon: const Icon(Icons.lock),
                   ),

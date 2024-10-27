@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:latihan_1/beranda.dart';
-import 'package:latihan_1/login.dart';
+import 'package:latihan_1/home_page.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Implementasi untuk halaman pendaftaran, misalnya:
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Register"),
-        backgroundColor: Colors.green,
-      ),
-      body: const Center(child: Text('Halaman Pendaftaran')),
-    );
+    return const Placeholder();
   }
 }
 
@@ -33,42 +24,43 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _confirmpasswordController =
       TextEditingController();
 
-    void _tampil() {
-      String username = _usernameController.text;
-      String email = _emailController.text;
-      String password = _passwordController.text;
-      String confirm = _confirmpasswordController.text;
+  void _tampil() {
+    String username = _usernameController.text;
+    String email = _emailController.text;
+    String password = _passwordController.text;
+    String confirm = _confirmpasswordController.text;
 
-      showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: Text("Data Akun"),
-              content: Text(
-                  "Username: $username, email: $email, password: $password, confirm: $confirm"),
-            );
-          });
-    }
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Data Akun"),
+            content: Text(
+                "Username: $username, email: $email, password: $password, confirm: $confirm"),
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Register"),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.blueAccent,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+         child: Center(
+          child: SingleChildScrollView(
+          child: Column(
+           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "Sign up",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const Text(
-              "Create your account",
-              style: TextStyle(fontSize: 16),
+              "Silahkan Masukkan Data Diri Anda",
+              style: TextStyle(
+               fontSize: 24,
+               fontWeight: FontWeight.bold
+               ),
             ),
             const SizedBox(height: 30), // Jarak antara informasi dan TextField
             TextField(
@@ -133,20 +125,34 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 20), // Jarak antara TextField dan tombol
             ElevatedButton(
               onPressed: () {
-                // Tambahkan logika navigasi di sini
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Beranda()), // Ganti dengan halaman yang sesuai
-                );
+                String username = _usernameController.text;
+                String email = _emailController.text;
+                String password = _passwordController.text;
+                String confirm = _confirmpasswordController.text;
+
+                if (username.isEmpty ||
+                    email.isEmpty ||
+                    password.isEmpty ||
+                    confirm.isEmpty) {
+                } else {
+                  // Tambahkan logika navigasi di sini
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Beranda()), // Ganti dengan halaman yang sesuai
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
               child: const Text(
-                'Sign up',
+                'Register',
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.black,
@@ -184,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // Aksi login dengan Google di sini
               },
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -206,21 +212,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             const SizedBox(height: 20), // Jarak antara tombol Google dan tautan
-            TextButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const loginPage()),
-                );
-              },
-              child: const Text(
-                'Already have an account? Log in here',
-                style: TextStyle(color: Colors.blue),
-              ),
-            ),
           ],
         ),
+      ),
+      ),
       ),
     );
   }
 }
+
+
