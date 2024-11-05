@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latihan_1/setting.dart';
 
 class Beranda extends StatelessWidget {
   @override
@@ -43,6 +44,10 @@ class Beranda extends StatelessWidget {
               title: Text('Settings'),
               onTap: () {
                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Setting()),
+                );
               },
             ),
             ListTile(
