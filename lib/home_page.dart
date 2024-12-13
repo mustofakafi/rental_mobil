@@ -1,5 +1,5 @@
+import 'package:LATIHAN_1/setting.dart';
 import 'package:flutter/material.dart';
-import 'package:latihan_1/setting.dart';
 
 class Beranda extends StatelessWidget {
   @override

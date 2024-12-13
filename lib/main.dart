@@ -1,9 +1,26 @@
+import 'package:LATIHAN_1/register_page.dart';
 import 'package:flutter/material.dart';
-import 'package:latihan_1/login_page.dart';
-import 'package:latihan_1/register_page.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:provider/provider.dart';
+import 'home_page.dart'; // Assuming you have this page
+import 'login_page.dart'; // Assuming you have this page
+import 'providers/barang_provider.dart';
+import 'providers/login_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: true, // Aktifkan Device Preview
+      builder: (context) => MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => BarangProvider()),
+          ChangeNotifierProvider(
+              create: (_) => LoginProvider()), // Tambahkan LoginProvider
+        ],
+        child: MyApp(),
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -62,18 +79,21 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const loginPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const loginPage()),
                       );
                     },
                     child: const Text('Login'),
                   ),
-                  const SizedBox(width: 20.0), // Jarak antara tombol Login dan Register
+                  const SizedBox(
+                      width: 20.0), // Jarak antara tombol Login dan Register
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MyHomePage(), // Halaman RegisterPage
+                          builder: (context) =>
+                              const MyHomePage(), // Halaman RegisterPage
                         ),
                       );
                     },

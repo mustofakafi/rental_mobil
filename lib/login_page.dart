@@ -1,6 +1,6 @@
+import 'package:LATIHAN_1/home_page.dart';
+import 'package:LATIHAN_1/register_page.dart';
 import 'package:flutter/material.dart';
-import 'package:latihan_1/home_page.dart';
-import 'package:latihan_1/register_page.dart';
 
 class login extends StatelessWidget {
   const login({super.key});
